@@ -34,8 +34,8 @@ jobs:
     permissions:
       contents: read
     env:
-      A2RCHI_DIR: /home/runner/work/a2rchi-local
-      HOME: /home/runner
+      A2RCHI_DIR: ${{ github.workspace }}/a2rchi-local
+ 
     outputs:
       changed: ${{ steps.detect.outputs.changed }}
       tag: ${{ steps.detect.outputs.tag }}
@@ -106,8 +106,7 @@ jobs:
       contents: read
       pull-requests: write
     env:
-      A2RCHI_DIR: /home/runner/work/a2rchi-local
-      HOME: /home/runner
+      A2RCHI_DIR: ${{ github.workspace }}/a2rchi-local
     steps:
       - name: Checkout
         uses: actions/checkout@v4
