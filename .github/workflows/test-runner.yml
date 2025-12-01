@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: [submit76-runner]
+    runs-on: [submit76-runner, submit76-runner-test]
     
     steps:
       - name: Check runner info
