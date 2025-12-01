@@ -96,7 +96,7 @@ runs:
             fi
           done <<< "${EXTRA_ENV}"
         fi
-        CMD=(a2rchi create --name "${DEPLOYMENT_NAME}" --config "${CONFIG_DEST}" -v 4 --services "${SERVICES}" --env-file "${ENV_FILE}")
+        CMD=(a2rchi create --name "${DEPLOYMENT_NAME}" --config "${CONFIG_DEST}" -v 4 --services "${SERVICES}" --env-file "${ENV_FILE}" --podman)
         if [[ "${HOSTMODE,,}" == "true" ]]; then
           CMD+=(--hostmode)
         fi
