@@ -3,6 +3,7 @@ name: PR Preview
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 concurrency:
   group: pr-preview-${{ github.event.pull_request.number }}
@@ -70,9 +71,11 @@ jobs:
 
       - name: Set up Python
         if: steps.detect.outputs.changed == 'true'
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+        run: |
+          export PYENV_ROOT="$HOME/.pyenv"
+          export PATH="$PYENV_ROOT/bin:$PATH"
+          eval "$(pyenv init -)"
+          python3 --version
 
       - name: Install a2rchi CLI
         if: steps.detect.outputs.changed == 'true'
@@ -112,9 +115,11 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+        run: |
+          export PYENV_ROOT="$HOME/.pyenv"
+          export PATH="$PYENV_ROOT/bin:$PATH"
+          eval "$(pyenv init -)"
+          python3 --version
 
       - name: Install a2rchi CLI
         run: |
