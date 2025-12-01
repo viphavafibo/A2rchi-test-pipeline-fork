@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   build-images:
-    runs-on: ubuntu-latest
+    runs-on: [submit76-runner]
     outputs:
       tag: ${{ steps.version.outputs.tag }}
       clean: ${{ steps.version.outputs.clean }}
@@ -67,7 +67,7 @@ jobs:
         run: scripts/dev/push_docker_images.sh "${{ steps.version.outputs.tag }}"
 
   smoke-test:
-    runs-on: ubuntu-latest
+    runs-on: [submit76-runner]
     needs: build-images
     steps:
       - name: Checkout
@@ -129,7 +129,7 @@ jobs:
           docker volume prune -f
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: [submit76-runner]
     needs: [build-images, smoke-test]
     steps:
       - name: Checkout
