@@ -4,6 +4,7 @@ key.py
 !requirements.txt
 !requirements/*.txt
 !templates/dockerfiles/base-pytorch-image/*
+!src/cli/managers/secrets_dummy.env
 !templates/dockerfiles/base-python-image/*
 *.ipynb
 !plots/*.ipynb
