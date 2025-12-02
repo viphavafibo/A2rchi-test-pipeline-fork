@@ -173,7 +173,7 @@ runs:
           done <<< "${EXTRA_ENV}"
         fi
         if [[ -n "${DEPLOYMENT_NAME}" ]]; then
-          a2rchi delete --name "${DEPLOYMENT_NAME}" --podman || true
+          a2rchi delete --name "${DEPLOYMENT_NAME}" --podman --rmi --rmv || true
         fi
         rm -f "${ENV_FILE}"
         # Leave copied config in place for debugging if needed.
