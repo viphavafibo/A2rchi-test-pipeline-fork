@@ -4,6 +4,8 @@ services:
   postgres:
     port: 34567
   chat_app:
+    port: 87861
+    external_port: 87861
     trained_on: "Dummy data for preview"
 
 data_manager:
