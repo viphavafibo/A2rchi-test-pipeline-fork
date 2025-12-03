@@ -136,7 +136,7 @@ jobs:
         run: rm -rf site
 
       - name: Run smoke deployment
-        uses: ./.github/actions/run-smoke-podman
+        uses: ./.github/actions/run-smoke
         with:
           deployment-name: manual-${{ github.run_id }}
           config-path: tests/pr_preview_config/pr_preview_config.yaml
@@ -146,7 +146,8 @@ jobs:
           hostmode: "true"
           wait-url: http://localhost:27861/api/health
           base-url: http://localhost:27861
-          extra-env: A2RCHI_COMPOSE_UP_FLAGS=--build --pull 
+          extra-env: A2RCHI_COMPOSE_UP_FLAGS=--build --pull
+          use-podman: "true"
 
       - name: Delete PR preview Docker tags
         if: ${{ always() && needs.build-base-images.outputs.changed == 'true' }}
