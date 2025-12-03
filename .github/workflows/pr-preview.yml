@@ -70,13 +70,13 @@ jobs:
           fi
 
       - name: Set up Python (GitHub runner)
-        if: ${{ !contains(runner.name, 'submit') }}
+        if: ${{ !contains(runner.name, 'submit') && steps.detect.outputs.changed == 'true' }}
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Set up Python (Self-hosted)
-        if: ${{ contains(runner.name, 'submit') }}
+        if: ${{ contains(runner.name, 'submit') && steps.detect.outputs.changed == 'true' }} 
         run: |
           export PYENV_ROOT="$HOME/.pyenv"
           export PATH="$PYENV_ROOT/bin:$PATH"
@@ -120,13 +120,13 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python (GitHub runner)
-        if: ${{ !contains(runner.name, 'submit') }}
+        if: ${{ !contains(runner.name, 'submit') && steps.detect.outputs.changed == 'true' }}
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Set up Python (Self-hosted)
-        if: ${{ contains(runner.name, 'submit') }}
+        if: ${{ contains(runner.name, 'submit') && steps.detect.outputs.changed == 'true' }}
         run: |
           export PYENV_ROOT="$HOME/.pyenv"
           export PATH="$PYENV_ROOT/bin:$PATH"
