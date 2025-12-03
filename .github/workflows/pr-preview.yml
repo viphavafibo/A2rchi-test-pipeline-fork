@@ -30,11 +30,6 @@ jobs:
   #       run: black --check .
 
   build-base-images:
-    if: >
-      github.event_name == 'pull_request' ||
-      (github.event_name == 'issue_comment' &&
-      github.event.issue.pull_request &&
-      contains(github.event.comment.body, 'run pr-preview'))
     runs-on: [submit76-runner]
     permissions:
       contents: read
@@ -105,12 +100,6 @@ jobs:
         run: scripts/dev/push_docker_images.sh "${{ steps.detect.outputs.tag }}"
 
   preview:
-    if: >
-      github.event_name == 'pull_request' ||
-      (github.event_name == 'issue_comment' &&
-      github.event.issue.pull_request &&
-      contains(github.event.comment.body, 'run pr-preview'))
-
     runs-on: [submit76-runner]
     needs: build-base-images
     permissions:
