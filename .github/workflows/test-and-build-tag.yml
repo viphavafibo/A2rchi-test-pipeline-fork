@@ -2,7 +2,7 @@ name: Test and Build Tag
 
 env:
   A2RCHI_DIR: ${{ github.workspace }}/a2rchi-local
-  REGISTRY_PREFIX: a2rchi
+  REGISTRY_PREFIX: ohmviphava
 
 on:
   workflow_dispatch:
