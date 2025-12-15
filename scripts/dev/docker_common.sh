@@ -7,8 +7,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 # Map of image name -> build context directory.
 declare -Ag IMAGE_DIRS=(
-  ["a2rchi/a2rchi-python-base"]="$ROOT_DIR/src/cli/templates/dockerfiles/base-python-image"
-  ["a2rchi/a2rchi-pytorch-base"]="$ROOT_DIR/src/cli/templates/dockerfiles/base-pytorch-image"
+  ["ohmviphava/a2rchi-python-base"]="$ROOT_DIR/src/cli/templates/dockerfiles/base-python-image"
+  ["ohmviphava/a2rchi-pytorch-base"]="$ROOT_DIR/src/cli/templates/dockerfiles/base-pytorch-image"
 )
 
 resolve_tag() {
