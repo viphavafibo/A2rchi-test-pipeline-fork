@@ -166,7 +166,7 @@ jobs:
             docker tag "docker.io/$image:$VERSION_TAG" "docker.io/$image:latest"
             docker push "docker.io/$image:latest"
           done
-
+      
       - name: Update version in project files
         run: python scripts/dev/update_version.py "${{ needs.build-images.outputs.clean }}"
 
