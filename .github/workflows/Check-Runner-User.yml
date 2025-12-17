@@ -5,7 +5,7 @@ on:
 
 jobs:
   check-user:
-    runs-on: [submit76-runner]
+    runs-on: [submit76-runner-test]
     steps:
       - name: Check user info
         run: |
