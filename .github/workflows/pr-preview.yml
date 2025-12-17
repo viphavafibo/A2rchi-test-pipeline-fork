@@ -132,7 +132,7 @@ jobs:
 
       - name: Prepare base image references
         if: needs.build-base-images.outputs.changed == 'true'
-        run: python scripts/dev/update_service_base_images.py --tag "${{ needs.build-base-images.outputs.tag }}" --switch-source localhost
+        run: python scripts/dev/update_service_base_images.py --tag "${{ needs.build-base-images.outputs.tag }}" --switch-source localhost --orig-tag all
 
       - name: Verify MkDocs build
         run: mkdocs build --config-file docs/mkdocs.yml --strict
@@ -153,4 +153,5 @@ jobs:
           base-url: http://localhost:27861
           extra-env: A2RCHI_COMPOSE_UP_FLAGS=--build --pull
           use-podman: "true"
+
 
