@@ -11,4 +11,4 @@ theme: readthedocs
 repo_url: https://github.com/mit-submit/A2rchi
 repo_name: 'GitHub'
 extra:
-  version: 0.0.8rc1
+  version: 0.0.8rc3
